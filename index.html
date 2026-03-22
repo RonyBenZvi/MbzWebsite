@@ -1,26 +1,41 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-language="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moshe Ben Zvi Consulting Engineers Ltd</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Moshe Ben Zvi Consulting Engineers Ltd | HVAC & Building Systems Engineering</title>
     <meta
       name="description"
-      content="Modern bilingual website for Moshe Ben Zvi Consulting Engineers Ltd in Israel."
+      content="Bilingual HVAC, plumbing, smoke control, and building systems engineering studio serving construction projects across Israel."
     />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:title" content="Moshe Ben Zvi Consulting Engineers Ltd" />
+    <meta
+      property="og:description"
+      content="Production-ready bilingual engineering website focused on HVAC, plumbing, and high-performance construction coordination."
+    />
+    <meta property="og:type" content="website" />
     <style>
       :root {
         --bg: #07111f;
-        --surface: rgba(10, 24, 43, 0.72);
-        --surface-strong: #0f223c;
-        --surface-soft: rgba(255, 255, 255, 0.08);
-        --text: #f6fbff;
-        --muted: #b9c8dc;
-        --brand: #59d0ff;
-        --brand-strong: #2f7cff;
-        --accent: #7bf0c5;
+        --bg-strong: #040812;
+        --surface: rgba(10, 18, 33, 0.84);
+        --surface-strong: rgba(17, 28, 48, 0.95);
+        --surface-soft: rgba(255, 255, 255, 0.07);
+        --text: #f7fbff;
+        --muted: #adbed6;
+        --brand: #60d7ff;
+        --brand-strong: #5673ff;
+        --accent: #70f0bc;
+        --accent-warm: #ffc86f;
+        --danger: #ff8a8a;
         --border: rgba(255, 255, 255, 0.12);
-        --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --shell: min(1200px, calc(100% - 2rem));
       }
 
       * {
@@ -34,11 +49,13 @@
       body {
         margin: 0;
         font-family: Inter, "Segoe UI", Arial, sans-serif;
-        background:
-          radial-gradient(circle at top left, rgba(47, 124, 255, 0.25), transparent 28%),
-          radial-gradient(circle at top right, rgba(123, 240, 197, 0.16), transparent 24%),
-          linear-gradient(160deg, #040b14 0%, #07111f 55%, #0d1d33 100%);
         color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(86, 115, 255, 0.28), transparent 22%),
+          radial-gradient(circle at 88% 16%, rgba(112, 240, 188, 0.18), transparent 20%),
+          radial-gradient(circle at 50% 100%, rgba(255, 200, 111, 0.14), transparent 28%),
+          linear-gradient(165deg, #040812 0%, #091221 52%, #101d36 100%);
+        min-height: 100vh;
       }
 
       body::before {
@@ -47,10 +64,15 @@
         inset: 0;
         pointer-events: none;
         background-image:
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 42px 42px;
-        mask-image: radial-gradient(circle at center, black 32%, transparent 92%);
+          linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(circle at center, black 30%, transparent 92%);
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
       }
 
       a {
@@ -58,7 +80,7 @@
       }
 
       .shell {
-        width: min(1180px, calc(100% - 2rem));
+        width: var(--shell);
         margin: 0 auto;
       }
 
@@ -67,35 +89,45 @@
         top: 0;
         z-index: 20;
         backdrop-filter: blur(18px);
-        background: rgba(7, 17, 31, 0.7);
+        background: rgba(7, 17, 31, 0.78);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .topbar-inner {
+      .topbar-inner,
+      .nav-links,
+      .controls,
+      .brand,
+      .hero-actions,
+      .stats,
+      .chips,
+      .contact-actions,
+      .footer-row {
         display: flex;
         align-items: center;
+      }
+
+      .topbar-inner {
         justify-content: space-between;
         gap: 1rem;
-        padding: 1rem 0;
+        padding: 0.9rem 0;
       }
 
       .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.9rem;
+        gap: 0.95rem;
+        min-width: 0;
       }
 
       .brand-mark {
-        width: 46px;
-        height: 46px;
+        width: 48px;
+        height: 48px;
         display: grid;
         place-items: center;
-        border-radius: 14px;
-        background: linear-gradient(145deg, rgba(89, 208, 255, 0.22), rgba(47, 124, 255, 0.25));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        background: linear-gradient(145deg, rgba(96, 215, 255, 0.28), rgba(86, 115, 255, 0.34));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
         font-weight: 800;
-        color: var(--brand);
+        color: #ffffff;
       }
 
       .brand-copy strong,
@@ -104,23 +136,41 @@
       }
 
       .brand-copy strong {
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
 
       .brand-copy span {
         color: var(--muted);
-        font-size: 0.82rem;
+        font-size: 0.85rem;
       }
 
-      .controls {
-        display: flex;
-        align-items: center;
+      .controls,
+      .nav-links,
+      .hero-actions,
+      .stats,
+      .chips,
+      .contact-actions,
+      .footer-row {
         gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a,
+      .footer-link {
+        text-decoration: none;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover,
+      .footer-link:hover,
+      .contact-link:hover {
+        color: var(--text);
       }
 
       .lang-toggle {
         display: inline-flex;
-        padding: 0.3rem;
+        padding: 0.28rem;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid var(--border);
@@ -130,92 +180,130 @@
         border: 0;
         background: transparent;
         color: var(--muted);
-        padding: 0.6rem 0.95rem;
+        padding: 0.65rem 1rem;
         border-radius: 999px;
         cursor: pointer;
         font-weight: 700;
+        min-width: 70px;
       }
 
       .lang-toggle button.active {
-        background: linear-gradient(145deg, var(--brand), var(--brand-strong));
+        background: linear-gradient(135deg, var(--brand), var(--brand-strong));
         color: #03111f;
       }
 
       .hero {
-        padding: 5rem 0 3rem;
+        padding: 4.2rem 0 2rem;
+      }
+
+      .hero-grid,
+      .section-grid,
+      .gallery-grid,
+      .contact-grid,
+      .readiness-grid,
+      .feature-grid {
+        display: grid;
+        gap: 1.25rem;
       }
 
       .hero-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 1.5rem;
+        grid-template-columns: 1.18fr 0.82fr;
         align-items: stretch;
       }
 
-      .panel {
+      .panel,
+      .feature,
+      .gallery-card,
+      .readiness-card,
+      .contact-card {
         background: var(--surface);
         border: 1px solid var(--border);
         box-shadow: var(--shadow);
-        border-radius: 28px;
-        overflow: hidden;
+        border-radius: var(--radius-xl);
       }
 
       .hero-copy,
-      .hero-card {
+      .hero-side,
+      .contact-wrap {
         padding: 2rem;
       }
 
-      .eyebrow {
+      .eyebrow,
+      .chip {
         display: inline-flex;
         align-items: center;
-        gap: 0.5rem;
-        color: var(--accent);
-        background: rgba(123, 240, 197, 0.09);
-        border: 1px solid rgba(123, 240, 197, 0.14);
+        gap: 0.45rem;
         border-radius: 999px;
         padding: 0.55rem 0.9rem;
         font-size: 0.86rem;
         letter-spacing: 0.02em;
       }
 
+      .eyebrow {
+        color: var(--accent);
+        background: rgba(112, 240, 188, 0.1);
+        border: 1px solid rgba(112, 240, 188, 0.18);
+      }
+
+      .chip {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
       h1 {
-        font-size: clamp(2.6rem, 6vw, 5.25rem);
-        line-height: 0.96;
+        font-size: clamp(2.8rem, 6vw, 5.3rem);
+        line-height: 0.95;
         margin: 1rem 0;
-        max-width: 11ch;
+        max-width: 10.5ch;
+      }
+
+      h2 {
+        font-size: clamp(1.9rem, 4vw, 3rem);
+        margin-bottom: 0.7rem;
+      }
+
+      .lead,
+      .section-copy,
+      .feature p,
+      .gallery-card p,
+      .readiness-card p,
+      .contact-card p,
+      footer p {
+        color: var(--muted);
+        line-height: 1.75;
       }
 
       .lead {
-        color: var(--muted);
-        font-size: 1.1rem;
-        line-height: 1.8;
-        max-width: 64ch;
-      }
-
-      .hero-actions,
-      .contact-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem;
-        margin-top: 1.8rem;
+        font-size: 1.06rem;
+        max-width: 61ch;
       }
 
       .btn,
-      .btn-secondary {
+      .btn-secondary,
+      .contact-link {
         text-decoration: none;
         border-radius: 999px;
-        padding: 0.92rem 1.35rem;
+        padding: 0.95rem 1.35rem;
         font-weight: 800;
         transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
       }
 
       .btn {
         background: linear-gradient(135deg, var(--brand), var(--brand-strong));
-        color: #02101d;
-        box-shadow: 0 18px 40px rgba(47, 124, 255, 0.35);
+        color: #03101c;
+        box-shadow: 0 18px 38px rgba(86, 115, 255, 0.35);
       }
 
-      .btn-secondary {
+      .btn-secondary,
+      .contact-link {
         border: 1px solid var(--border);
         background: rgba(255, 255, 255, 0.04);
         color: var(--text);
@@ -223,40 +311,68 @@
 
       .btn:hover,
       .btn-secondary:hover,
+      .contact-link:hover,
       .feature:hover,
+      .gallery-card:hover,
+      .readiness-card:hover,
       .contact-card:hover {
         transform: translateY(-2px);
       }
 
-      .hero-card {
+      .stats {
+        margin-top: 1.7rem;
+      }
+
+      .stat {
+        min-width: 132px;
+        padding: 1rem 1.05rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .stat strong,
+      .readiness-card strong {
+        display: block;
+        font-size: 1.9rem;
+        margin-bottom: 0.3rem;
+        color: #ffffff;
+      }
+
+      .hero-side {
         display: grid;
         gap: 1rem;
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-          linear-gradient(160deg, rgba(89, 208, 255, 0.12), rgba(47, 124, 255, 0.04));
+          linear-gradient(160deg, rgba(96, 215, 255, 0.12), rgba(86, 115, 255, 0.08));
       }
 
-      .metric {
-        padding: 1rem 1.1rem;
+      .showcase-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 26px;
+        min-height: 280px;
+      }
+
+      .showcase-image img,
+      .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .showcase-caption {
+        position: absolute;
+        inset: auto 1rem 1rem 1rem;
+        padding: 1rem;
         border-radius: 20px;
-        background: var(--surface-soft);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .metric strong {
-        display: block;
-        font-size: 2rem;
-        margin-bottom: 0.35rem;
-      }
-
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
+        background: rgba(7, 17, 31, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
       }
 
       .section {
-        padding: 1.2rem 0 0;
+        padding: 1.3rem 0 0;
       }
 
       .section-head {
@@ -267,73 +383,63 @@
         margin-bottom: 1rem;
       }
 
-      .section-head h2,
-      .contact-wrap h2 {
-        margin: 0;
-        font-size: clamp(1.8rem, 4vw, 3rem);
-      }
-
-      .section-head p,
-      .contact-wrap p,
-      .feature p,
-      .contact-card p,
-      footer p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.75;
+      .feature-grid,
+      .gallery-grid,
+      .readiness-grid,
+      .contact-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .feature,
+      .gallery-card,
+      .readiness-card,
       .contact-card {
         padding: 1.4rem;
-        border-radius: 24px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
         transition: transform 180ms ease;
       }
 
       .feature-icon {
-        width: 52px;
-        height: 52px;
+        width: 54px;
+        height: 54px;
         display: grid;
         place-items: center;
         border-radius: 18px;
         margin-bottom: 1rem;
-        font-size: 1.2rem;
-        background: linear-gradient(145deg, rgba(89, 208, 255, 0.18), rgba(123, 240, 197, 0.18));
+        font-size: 1.1rem;
+        font-weight: 800;
+        background: linear-gradient(145deg, rgba(96, 215, 255, 0.2), rgba(112, 240, 188, 0.18));
       }
 
-      .feature h3,
-      .contact-card h3 {
-        margin: 0 0 0.6rem;
-        font-size: 1.15rem;
+      .gallery-card {
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .gallery-image {
+        aspect-ratio: 4 / 3;
+      }
+
+      .gallery-copy {
+        padding: 1.2rem 1.2rem 1.35rem;
       }
 
       .contact-wrap {
         margin: 3rem 0 2rem;
-        padding: 2rem;
-        background: linear-gradient(160deg, rgba(47, 124, 255, 0.14), rgba(123, 240, 197, 0.08));
-        border: 1px solid var(--border);
-        border-radius: 30px;
-        box-shadow: var(--shadow);
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin-top: 1.5rem;
+        background: linear-gradient(160deg, rgba(86, 115, 255, 0.16), rgba(112, 240, 188, 0.08));
       }
 
       .contact-card a {
         color: var(--brand);
-        text-decoration: none;
-        font-weight: 700;
       }
 
       footer {
-        padding: 1rem 0 3rem;
+        padding: 0 0 3rem;
+      }
+
+      .footer-row {
+        justify-content: space-between;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 1.4rem;
       }
 
       [data-lang] {
@@ -345,53 +451,174 @@
         display: block;
       }
 
-      html[data-language='he'] body {
-        font-family: "Segoe UI", Arial, sans-serif;
-      }
-
       html[data-language='he'] {
         direction: rtl;
       }
 
+      html[data-language='he'] body {
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
       html[data-language='he'] .topbar-inner,
-      html[data-language='he'] .section-head {
+      html[data-language='he'] .section-head,
+      html[data-language='he'] .footer-row {
         flex-direction: row-reverse;
       }
 
       html[data-language='he'] .brand,
       html[data-language='he'] .controls,
+      html[data-language='he'] .nav-links,
       html[data-language='he'] .hero-actions,
+      html[data-language='he'] .stats,
+      html[data-language='he'] .chips,
       html[data-language='he'] .contact-actions {
         flex-direction: row-reverse;
       }
 
-      @media (max-width: 920px) {
+      html[data-language='he'] .brand-copy,
+      html[data-language='he'] .hero-copy,
+      html[data-language='he'] .hero-side,
+      html[data-language='he'] .feature,
+      html[data-language='he'] .gallery-copy,
+      html[data-language='he'] .readiness-card,
+      html[data-language='he'] .contact-card,
+      html[data-language='he'] .contact-wrap,
+      html[data-language='he'] footer {
+        text-align: right;
+      }
+
+      html[data-language='he'] .showcase-caption {
+        inset: auto 1rem 1rem 1rem;
+      }
+
+      @media (max-width: 960px) {
         .hero-grid,
-        .grid-3,
+        .feature-grid,
+        .gallery-grid,
+        .readiness-grid,
         .contact-grid {
           grid-template-columns: 1fr;
         }
 
         .topbar-inner,
-        .section-head {
+        .section-head,
+        .footer-row,
+        html[data-language='he'] .topbar-inner,
+        html[data-language='he'] .section-head,
+        html[data-language='he'] .footer-row {
           flex-direction: column;
           align-items: stretch;
         }
+
+        .controls {
+          justify-content: space-between;
+        }
+
+        .nav-links {
+          justify-content: space-between;
+        }
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 680px) {
+        .shell {
+          width: min(100% - 1rem, 100%);
+        }
+
         .hero {
-          padding-top: 3rem;
+          padding-top: 2.8rem;
         }
 
         .hero-copy,
-        .hero-card,
-        .contact-wrap {
-          padding: 1.3rem;
+        .hero-side,
+        .contact-wrap,
+        .feature,
+        .gallery-copy,
+        .readiness-card,
+        .contact-card {
+          padding: 1.2rem;
+        }
+
+        .topbar-inner {
+          padding: 0.75rem 0;
+        }
+
+        .brand {
+          align-items: flex-start;
+        }
+
+        .brand-copy strong {
+          font-size: 0.94rem;
+        }
+
+        .nav-links,
+        .controls,
+        .hero-actions,
+        .stats,
+        .chips,
+        .contact-actions,
+        html[data-language='he'] .nav-links,
+        html[data-language='he'] .controls,
+        html[data-language='he'] .hero-actions,
+        html[data-language='he'] .stats,
+        html[data-language='he'] .chips,
+        html[data-language='he'] .contact-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .lang-toggle {
+          align-self: stretch;
+          justify-content: space-between;
+        }
+
+        .lang-toggle button,
+        .btn,
+        .btn-secondary,
+        .contact-link {
+          width: 100%;
+          text-align: center;
         }
 
         h1 {
           max-width: none;
+          font-size: clamp(2.2rem, 10vw, 3.3rem);
+        }
+
+        .lead,
+        .section-copy,
+        .feature p,
+        .gallery-card p,
+        .readiness-card p,
+        .contact-card p,
+        footer p {
+          font-size: 0.98rem;
+        }
+
+        .showcase-image {
+          min-height: 240px;
+        }
+
+        html[data-language='he'] .brand,
+        html[data-language='he'] .controls,
+        html[data-language='he'] .nav-links,
+        html[data-language='he'] .hero-actions,
+        html[data-language='he'] .stats,
+        html[data-language='he'] .chips,
+        html[data-language='he'] .contact-actions {
+          align-items: stretch;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
         }
       }
     </style>
@@ -400,19 +627,25 @@
     <header class="topbar">
       <div class="shell topbar-inner">
         <div class="brand">
-          <div class="brand-mark">MBZ</div>
+          <div class="brand-mark" aria-hidden="true">MBZ</div>
           <div class="brand-copy">
             <strong data-lang="en">Moshe Ben Zvi Consulting Engineers Ltd</strong>
             <strong data-lang="he">משה בן צבי מהנדסים יועצים בע״מ</strong>
-            <span data-lang="en">Engineering clarity for ambitious projects</span>
-            <span data-lang="he">דיוק הנדסי לפרויקטים שאפתניים</span>
+            <span data-lang="en">HVAC, plumbing, smoke control, and building systems engineering</span>
+            <span data-lang="he">תכנון מיזוג אוויר, אינסטלציה, בקרת עשן ומערכות בניין</span>
           </div>
         </div>
+
         <div class="controls">
-          <nav>
-            <a class="btn-secondary" href="#contact" data-lang="en">Contact</a>
-            <a class="btn-secondary" href="#contact" data-lang="he">צור קשר</a>
+          <nav class="nav-links" aria-label="Primary navigation">
+            <a href="#services" data-lang="en">Services</a>
+            <a href="#services" data-lang="he">שירותים</a>
+            <a href="#projects" data-lang="en">Projects</a>
+            <a href="#projects" data-lang="he">פרויקטים</a>
+            <a href="#contact" data-lang="en">Contact</a>
+            <a href="#contact" data-lang="he">צור קשר</a>
           </nav>
+
           <div class="lang-toggle" aria-label="Language switcher">
             <button type="button" class="active" data-set-language="en">EN</button>
             <button type="button" data-set-language="he">עברית</button>
@@ -422,127 +655,230 @@
     </header>
 
     <main class="shell">
-      <section class="hero">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-grid">
           <article class="panel hero-copy">
-            <div class="eyebrow" data-lang="en">Integrated HVAC, plumbing & building systems design</div>
-            <div class="eyebrow" data-lang="he">תכנון משולב למערכות מיזוג אוויר, אינסטלציה ומערכות בניין</div>
+            <div class="eyebrow" data-lang="en">Production-ready engineering website for real construction work</div>
+            <div class="eyebrow" data-lang="he">אתר תדמית מוכן לייצור עבור משרד הנדסה שפועל באתרי בנייה אמיתיים</div>
 
-            <h1 data-lang="en">Engineering spaces that perform beautifully.</h1>
-            <h1 data-lang="he">הנדסה שמעצבת חללים חכמים, מדויקים ונעימים יותר.</h1>
+            <h1 id="hero-title" data-lang="en">Mechanical systems that make buildings work better.</h1>
+            <h1 id="hero-title-he" data-lang="he">תכנון מערכות מדויק שמייצר מבנים חכמים, יעילים ונוחים יותר.</h1>
 
             <p class="lead" data-lang="en">
-              A refined digital presence for a consulting engineering practice in Israel—showcasing professional trust,
-              advanced planning, and a smooth bilingual experience for Hebrew and English speaking clients.
+              Clear bilingual messaging, stronger visual hierarchy, high-impact project imagery, and fast mobile contact paths help clients understand exactly what the office delivers: coordinated HVAC, plumbing, and performance-focused engineering.
             </p>
             <p class="lead" data-lang="he">
-              אתר מודרני ומרשים למשרד ייעוץ הנדסי בישראל—עם שפה עיצובית מתקדמת, תחושת אמינות גבוהה וחוויית שימוש
-              דו-לשונית מלאה בעברית ובאנגלית.
+              מסרים חדים בשתי שפות, היררכיה ברורה, תמונות פרויקט חזקות ויצירת קשר מהירה במובייל מבהירים מיד מה המשרד מספק: תכנון מתואם של מיזוג אוויר, אינסטלציה ומערכות בניין ברמת ביצוע גבוהה.
             </p>
 
+            <div class="chips">
+              <span class="chip" data-lang="en">Commercial buildings</span>
+              <span class="chip" data-lang="he">מבני מסחר</span>
+              <span class="chip" data-lang="en">Residential towers</span>
+              <span class="chip" data-lang="he">מגדלי מגורים</span>
+              <span class="chip" data-lang="en">Renovation & fit-out</span>
+              <span class="chip" data-lang="he">שיפוץ והתאמות</span>
+            </div>
+
             <div class="hero-actions">
-              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="en">Email the office</a>
-              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="he">שלחו מייל למשרד</a>
+              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="en">Request a project review</a>
+              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="he">בקשו בדיקת פרויקט</a>
               <a class="btn-secondary" href="tel:+97235227405" data-lang="en">Call 03-5227405</a>
               <a class="btn-secondary" href="tel:+97235227405" data-lang="he">התקשרו: 03-5227405</a>
             </div>
+
+            <div class="stats" aria-label="Office strengths">
+              <div class="stat">
+                <strong data-lang="en">RTL</strong>
+                <strong data-lang="he">RTL</strong>
+                <span data-lang="en">Hebrew layout tuned for phones and thumb-friendly actions.</span>
+                <span data-lang="he">ממשק עברי מותאם למובייל עם כפתורים נוחים ונראות נקייה.</span>
+              </div>
+              <div class="stat">
+                <strong data-lang="en">Fast</strong>
+                <strong data-lang="he">מהיר</strong>
+                <span data-lang="en">Single-file static site ready for reliable deployment.</span>
+                <span data-lang="he">אתר סטטי קל ומהיר, מוכן לפריסה אמינה ופשוטה.</span>
+              </div>
+              <div class="stat">
+                <strong data-lang="en">Focused</strong>
+                <strong data-lang="he">ממוקד</strong>
+                <span data-lang="en">Only useful copy, direct proof points, and clear contact paths.</span>
+                <span data-lang="he">רק תוכן בעל ערך, הוכחות מקצועיות ודרך קצרה ליצירת קשר.</span>
+              </div>
+            </div>
           </article>
 
-          <aside class="panel hero-card">
-            <div class="metric">
-              <strong data-lang="en">Bilingual UX</strong>
-              <strong data-lang="he">חוויית שימוש דו-לשונית</strong>
-              <span data-lang="en">One-click switching between English and Hebrew, including layout direction.</span>
-              <span data-lang="he">מעבר מיידי בין עברית לאנגלית, כולל התאמת כיוון הקריאה והפריסה.</span>
+          <aside class="panel hero-side" aria-label="Featured project image and office positioning">
+            <div class="showcase-image">
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80"
+                alt="Mechanical room and HVAC construction coordination on a commercial site"
+                loading="eager"
+                decoding="async"
+              />
+              <div class="showcase-caption">
+                <strong data-lang="en">Field-ready engineering</strong>
+                <strong data-lang="he">הנדסה שמדברת ביצוע</strong>
+                <p data-lang="en">Design intent, construction coordination, and serviceability shown in one high-trust visual.</p>
+                <p data-lang="he">תכנון, תיאום ביצוע ותחזוקתיות מוצגים יחד בתמונה אחת שמחזקת אמון.</p>
+              </div>
             </div>
-            <div class="metric">
-              <strong data-lang="en">Premium visual language</strong>
-              <strong data-lang="he">שפה ויזואלית יוקרתית</strong>
-              <span data-lang="en">Deep navy tones, luminous accents, glassmorphism surfaces, and modern motion.</span>
-              <span data-lang="he">גווני כחול עמוקים, הדגשות מוארות, משטחי זכוכית ואווירה טכנולוגית עכשווית.</span>
-            </div>
-            <div class="metric">
-              <strong data-lang="en">Direct contact flow</strong>
-              <strong data-lang="he">יצירת קשר מיידית</strong>
-              <span data-lang="en">Built-in mail and phone actions for quick outreach from any device.</span>
-              <span data-lang="he">כפתורי מייל וטלפון ישירים המאפשרים פנייה מהירה מכל מכשיר.</span>
+
+            <div class="readiness-grid">
+              <article class="readiness-card">
+                <strong data-lang="en">Bilingual clarity</strong>
+                <strong data-lang="he">בהירות דו-לשונית</strong>
+                <p data-lang="en">English and Hebrew content are both concise, professional, and aligned with the same message.</p>
+                <p data-lang="he">התוכן בעברית ובאנגלית חד, מקצועי ושומר על מסר אחיד וברור.</p>
+              </article>
+              <article class="readiness-card">
+                <strong data-lang="en">Modern minimalism</strong>
+                <strong data-lang="he">מינימליזם מודרני</strong>
+                <p data-lang="en">Brighter accent colors, cleaner spacing, and less filler make the site feel current and premium.</p>
+                <p data-lang="he">צבעים עשירים יותר, ריווח נקי ופחות טקסט מיותר יוצרים מראה עכשווי ויוקרתי.</p>
+              </article>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="services">
         <div class="section-head">
           <div>
-            <h2 data-lang="en">Why this design works</h2>
-            <h2 data-lang="he">למה העיצוב הזה עובד</h2>
+            <h2 data-lang="en">What the office delivers</h2>
+            <h2 data-lang="he">מה המשרד מספק</h2>
           </div>
-          <p data-lang="en">A clean structure that balances engineering precision with a warm, premium brand feel.</p>
-          <p data-lang="he">מבנה נקי שמאזן בין דיוק הנדסי לבין מיתוג יוקרתי, מזמין ואמין.</p>
+          <p class="section-copy" data-lang="en">Service descriptions now explain practical project value instead of generic marketing copy.</p>
+          <p class="section-copy" data-lang="he">הטקסטים מתארים ערך אמיתי לפרויקט במקום שיווק כללי וחסר משמעות.</p>
         </div>
 
-        <div class="grid-3">
+        <div class="feature-grid">
           <article class="feature">
             <div class="feature-icon">01</div>
-            <h3 data-lang="en">Confident first impression</h3>
-            <h3 data-lang="he">רושם ראשוני חזק</h3>
-            <p data-lang="en">A bold hero section, layered gradients, and elegant card compositions create an immediate sense of expertise.</p>
-            <p data-lang="he">אזור פתיחה עוצמתי, שכבות צבע עשירות וכרטיסים אלגנטיים מייצרים תחושה מיידית של מקצועיות וניסיון.</p>
+            <h3 data-lang="en">HVAC design</h3>
+            <h3 data-lang="he">תכנון מיזוג אוויר</h3>
+            <p data-lang="en">Efficient air distribution, equipment sizing, shaft coordination, and maintainable layouts for commercial and residential projects.</p>
+            <p data-lang="he">תכנון יעיל של פיזור אוויר, בחירת ציוד, תיאום פירים ופתרונות תחזוקתיים למבני מגורים ומסחר.</p>
           </article>
 
           <article class="feature">
             <div class="feature-icon">02</div>
-            <h3 data-lang="en">Designed for Israeli audiences</h3>
-            <h3 data-lang="he">מותאם לקהל בישראל</h3>
-            <p data-lang="en">The interface supports both LTR and RTL reading modes so visitors can browse naturally in their preferred language.</p>
-            <p data-lang="he">הממשק תומך גם בכיוון קריאה עברי וגם באנגלית, כך שכל מבקר יכול לגלוש באופן טבעי ונוח.</p>
+            <h3 data-lang="en">Plumbing systems</h3>
+            <h3 data-lang="he">מערכות אינסטלציה</h3>
+            <p data-lang="en">Water supply, drainage, hot water circulation, and coordination with architecture and structure to reduce site clashes.</p>
+            <p data-lang="he">תכנון מים, ניקוז, סחרור מים חמים ותיאום עם אדריכלות וקונסטרוקציה לצמצום התנגשויות באתר.</p>
           </article>
 
           <article class="feature">
             <div class="feature-icon">03</div>
-            <h3 data-lang="en">Fast path to contact</h3>
-            <h3 data-lang="he">מסלול מהיר ליצירת קשר</h3>
-            <p data-lang="en">Prominent CTAs keep email and phone one tap away, reducing friction for prospective clients and partners.</p>
-            <p data-lang="he">כפתורי פעולה בולטים מציבים את המייל והטלפון במרחק לחיצה אחת בלבד מלקוחות ושותפים פוטנציאליים.</p>
+            <h3 data-lang="en">Smoke control & coordination</h3>
+            <h3 data-lang="he">בקרת עשן ותיאום מערכות</h3>
+            <p data-lang="en">Integrated planning for safety systems, plant rooms, ducts, and multidisciplinary coordination before construction pressure starts.</p>
+            <p data-lang="he">תכנון משולב למערכות בטיחות, חדרי מכונות, תעלות ותיאום יועצים לפני שלב הביצוע הלחוץ.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <h2 data-lang="en">Project-focused visual content</h2>
+            <h2 data-lang="he">תוכן ויזואלי שמחובר לשטח</h2>
+          </div>
+          <p class="section-copy" data-lang="en">Added high-quality construction imagery so the website shows the kind of work the office is built around.</p>
+          <p class="section-copy" data-lang="he">נוספו תמונות איכות של אתרי בנייה ומערכות כדי שהאתר ימחיש את סוג העבודה שהמשרד מבצע.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+                alt="Construction team reviewing an HVAC and building coordination area"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="gallery-copy">
+              <h3 data-lang="en">Construction coordination</h3>
+              <h3 data-lang="he">תיאום ביצוע באתר</h3>
+              <p data-lang="en">Visuals support the message that engineering decisions must work on site, not only on drawings.</p>
+              <p data-lang="he">התמונות מחזקות את המסר שתכנון טוב חייב לעבוד בשטח, לא רק על גבי תכניות.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img
+                src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&q=80"
+                alt="Industrial ventilation and mechanical building systems installation"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="gallery-copy">
+              <h3 data-lang="en">Mechanical systems in context</h3>
+              <h3 data-lang="he">מערכות מכניות בהקשר אמיתי</h3>
+              <p data-lang="en">Additional visual depth makes the site feel established while staying minimal and focused.</p>
+              <p data-lang="he">התוכן הוויזואלי מוסיף עומק ומקצועיות, בלי להעמיס ובלי לפגוע במינימליזם.</p>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-image">
+              <img
+                src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
+                alt="Commercial construction site with structural and building services work underway"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="gallery-copy">
+              <h3 data-lang="en">Ready for developers and clients</h3>
+              <h3 data-lang="he">מוכן ליזמים וללקוחות</h3>
+              <p data-lang="en">The site now communicates capability, scale, and execution quality before the first phone call.</p>
+              <p data-lang="he">האתר משדר יכולת, סדר גודל ואיכות ביצוע כבר לפני שיחת ההיכרות הראשונה.</p>
+            </div>
           </article>
         </div>
       </section>
 
       <section class="contact-wrap" id="contact">
-        <h2 data-lang="en">Contact us</h2>
-        <h2 data-lang="he">צור קשר</h2>
-        <p data-lang="en">Reach the office directly by email or phone to discuss new projects, engineering coordination, and planning support.</p>
-        <p data-lang="he">ניתן לפנות ישירות למשרד במייל או בטלפון לצורך פרויקטים חדשים, תיאום יועצים ותמיכה תכנונית.</p>
+        <h2 data-lang="en">Start a conversation with real project details</h2>
+        <h2 data-lang="he">דברו איתנו עם פרטי הפרויקט כבר מהשלב הראשון</h2>
+        <p data-lang="en">Share building type, stage, location, and required systems so the office can respond faster and more accurately.</p>
+        <p data-lang="he">שלחו סוג מבנה, שלב, מיקום ומערכות נדרשות כדי לאפשר מענה מהיר ומדויק יותר.</p>
 
         <div class="contact-grid">
           <article class="contact-card">
             <h3 data-lang="en">Email</h3>
             <h3 data-lang="he">דוא״ל</h3>
-            <p data-lang="en">Office mailbox for inquiries and project coordination.</p>
-            <p data-lang="he">כתובת המייל הראשית לפניות, תיאום ותקשורת שוטפת.</p>
+            <p data-lang="en">Best for plans, project briefs, drawings, and consultant coordination.</p>
+            <p data-lang="he">הדרך הנוחה לשליחת תכניות, בריפים, קבצים ותיאום בין יועצים.</p>
             <div class="contact-actions">
-              <a href="mailto:office@benzvi-eng.co.il">office@benzvi-eng.co.il</a>
+              <a class="contact-link" href="mailto:office@benzvi-eng.co.il">office@benzvi-eng.co.il</a>
             </div>
           </article>
 
           <article class="contact-card">
             <h3 data-lang="en">Phone</h3>
             <h3 data-lang="he">טלפון</h3>
-            <p data-lang="en">Main office phone number available online for the company.</p>
-            <p data-lang="he">מספר הטלפון הראשי של המשרד כפי שמופיע במקורות ציבוריים ברשת.</p>
+            <p data-lang="en">For urgent coordination, feasibility checks, and quick project introductions.</p>
+            <p data-lang="he">לשיחות תיאום דחופות, בדיקות היתכנות והיכרות ראשונית עם פרויקט חדש.</p>
             <div class="contact-actions">
-              <a href="tel:+97235227405">03-5227405</a>
+              <a class="contact-link" href="tel:+97235227405">03-5227405</a>
             </div>
           </article>
 
           <article class="contact-card">
-            <h3 data-lang="en">Location</h3>
-            <h3 data-lang="he">מיקום</h3>
-            <p data-lang="en">Serving projects in Israel with a polished digital presence ready for GitHub Pages deployment.</p>
-            <p data-lang="he">משרתים פרויקטים בישראל עם נוכחות דיגיטלית מודרנית המותאמת לפריסה ב-GitHub Pages.</p>
+            <h3 data-lang="en">Coverage</h3>
+            <h3 data-lang="he">אזור פעילות</h3>
+            <p data-lang="en">Bilingual communication and static hosting make the site reliable for clients across Israel and abroad.</p>
+            <p data-lang="he">שילוב של עברית, אנגלית ואתר סטטי אמין מאפשר פנייה נוחה מישראל ומחו״ל.</p>
             <div class="contact-actions">
-              <span data-lang="en">Israel</span>
-              <span data-lang="he">ישראל</span>
+              <span class="contact-link" data-lang="en">Israel-based practice</span>
+              <span class="contact-link" data-lang="he">משרד הפועל בישראל</span>
             </div>
           </article>
         </div>
@@ -550,29 +886,47 @@
     </main>
 
     <footer class="shell">
-      <p data-lang="en">Moshe Ben Zvi Consulting Engineers Ltd · Modern bilingual landing page concept.</p>
-      <p data-lang="he">משה בן צבי מהנדסים יועצים בע״מ · קונספט לאתר נחיתה מודרני ודו-לשוני.</p>
+      <div class="footer-row">
+        <p data-lang="en">Moshe Ben Zvi Consulting Engineers Ltd · Bilingual static website prepared for production deployment.</p>
+        <p data-lang="he">משה בן צבי מהנדסים יועצים בע״מ · אתר דו-לשוני סטטי שמוכן לפריסה בסביבת ייצור.</p>
+        <a class="footer-link" href="mailto:office@benzvi-eng.co.il">office@benzvi-eng.co.il</a>
+      </div>
     </footer>
 
     <script>
       const root = document.documentElement;
       const buttons = document.querySelectorAll('[data-set-language]');
+      const storageKey = 'mbz-language';
 
       function setLanguage(language) {
-        root.setAttribute('data-language', language);
-        root.setAttribute('lang', language === 'he' ? 'he' : 'en');
-        root.setAttribute('dir', language === 'he' ? 'rtl' : 'ltr');
+        const nextLanguage = language === 'he' ? 'he' : 'en';
+        root.dataset.language = nextLanguage;
+        root.lang = nextLanguage;
+        root.dir = nextLanguage === 'he' ? 'rtl' : 'ltr';
 
         buttons.forEach((button) => {
-          button.classList.toggle('active', button.dataset.setLanguage === language);
+          button.classList.toggle('active', button.dataset.setLanguage === nextLanguage);
+          button.setAttribute('aria-pressed', String(button.dataset.setLanguage === nextLanguage));
         });
+
+        window.localStorage.setItem(storageKey, nextLanguage);
+      }
+
+      function getInitialLanguage() {
+        const saved = window.localStorage.getItem(storageKey);
+        if (saved === 'he' || saved === 'en') {
+          return saved;
+        }
+
+        const browserLanguage = (navigator.language || '').toLowerCase();
+        return browserLanguage.startsWith('he') ? 'he' : 'en';
       }
 
       buttons.forEach((button) => {
         button.addEventListener('click', () => setLanguage(button.dataset.setLanguage));
       });
 
-      setLanguage('en');
+      setLanguage(getInitialLanguage());
     </script>
   </body>
 </html>
