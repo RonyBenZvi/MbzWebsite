@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>משה בן צבי מהנדסים יועצים בע"מ | Moshe Ben Zvi Consulting Engineers Ltd.</title>
+  <meta name="description" content="יעוץ ותכנון מקצועי במיזוג אוויר, תברואה והגנה מפני אש מאז 1971">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-900: #0f1f4d;
+      --navy-800: #0a3d75;
+      --navy-700: #14618f;
+      --navy-600: #1a7ab5;
+      --accent: #06b6d4;
+      --accent-light: #22d3ee;
+      --accent-dark: #0891b2;
+      --surface: #0c1526;
+      --surface-card: #111d35;
+      --surface-hover: #162544;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-tertiary: #94a3b8;
+      --cat-hospitals: #ef4444;
+      --cat-universities: #3b82f6;
+      --cat-commercial: #f59e0b;
+      --cat-hitech: #10b981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: 'Heebo', system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    html[lang="en"] body,
+    html[dir="ltr"] body {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    ::selection {
+      background: rgba(6, 182, 212, 0.3);
+      color: #fff;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--surface); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-800); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--navy-700); }
+
+    /* Grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ========= HEADER ========= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      padding: 16px 0;
+    }
+
+    header.scrolled {
+      background: rgba(12, 21, 38, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 0;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: white;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .logo-text small {
+      display: block;
+      font-weight: 400;
+      font-size: 11px;
+      color: var(--text-tertiary);
+    }
+
+    nav { display: flex; align-items: center; gap: 8px; }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-light);
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    .lang-btn {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-light);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      margin-inline-start: 8px;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-btn:hover {
+      background: rgba(6, 182, 212, 0.25);
+    }
+
+    /* Mobile menu */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger svg { width: 28px; height: 28px; }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(12, 21, 38, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--accent-light);
+      background: rgba(6, 182, 212, 0.1);
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    [dir="ltr"] .mobile-close {
+      left: auto;
+      right: 20px;
+    }
+
+    .mobile-close svg { width: 32px; height: 32px; }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: block; }
+    }
+
+    /* ========= HERO ========= */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #0f1f4d 0%, #0a3d75 40%, #14618f 70%, #1a7ab5 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 120px 0 80px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      color: var(--accent-light);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #0c1526;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(6, 182, 212, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-primary);
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ========= SECTIONS ========= */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent);
+      padding: 4px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      color: var(--text-tertiary);
+      font-size: 17px;
+      margin-bottom: 48px;
+      max-width: 600px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-heading .section-subtitle {
+      margin-inline: auto;
+    }
+
+    .underline-accent {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    /* ========= SERVICES GRID ========= */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      background: var(--surface-hover);
+      border-color: rgba(6, 182, 212, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--accent);
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-tertiary);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ========= ABOUT PREVIEW ========= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    /* ========= FULL ABOUT ========= */
+    .timeline {
+      position: relative;
+      padding-inline-start: 40px;
+      margin-top: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      inset-inline-start: 12px;
+      width: 2px;
+      background: rgba(6, 182, 212, 0.2);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      inset-inline-start: -34px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--surface);
+    }
+
+    .timeline-year {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .timeline-text {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .expertise-card {
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s;
+    }
+
+    .expertise-card:hover {
+      border-color: rgba(6, 182, 212, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .expertise-card h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      margin-top: 16px;
+    }
+
+    .expertise-card p {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* ========= SERVICES DETAIL ========= */
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 80px;
+      padding: 40px;
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+    }
+
+    .service-detail:nth-child(even) {
+      direction: ltr;
+    }
+
+    [dir="ltr"] .service-detail:nth-child(even) {
+      direction: rtl;
+    }
+
+    .service-detail .service-icon {
+      width: 64px;
+      height: 64px;
+    }
+
+    .service-detail h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 16px 0 12px;
+    }
+
+    .service-detail p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .service-detail-visual {
+      background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+      border-radius: 16px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-detail-visual svg {
+      width: 80px;
+      height: 80px;
+      color: var(--accent);
+      opacity: 0.3;
+    }
+
+    @media (max-width: 768px) {
+      .service-detail {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 28px;
+      }
+      .service-detail-visual { height: 180px; }
+      .service-detail:nth-child(even) { direction: inherit; }
+    }
+
+    /* ========= PROJECTS ========= */
+    .project-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      background: var(--surface-card);
+      color: var(--text-secondary);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .filter-btn:hover {
+      border-color: rgba(6, 182, 212, 0.3);
+      color: var(--accent-light);
+    }
+
+    .filter-btn.active {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--surface-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(6, 182, 212, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .project-card.hidden {
+      display: none;
+    }
+
+    .project-img {
+      height: 200px;
+      background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-img svg {
+      width: 48px;
+      height: 48px;
+      opacity: 0.2;
+      color: var(--accent);
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-category {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .project-category.hospitals { background: rgba(239,68,68,0.15); color: #ef4444; }
+    .project-category.universities { background: rgba(59,130,246,0.15); color: #3b82f6; }
+    .project-category.commercial { background: rgba(245,158,11,0.15); color: #f59e0b; }
+    .project-category.hitech { background: rgba(16,185,129,0.15); color: #10b981; }
+
+    .project-info h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ========= CTA ========= */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+      text-align: center;
+      position: relative;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--text-secondary);
+      font-size: 18px;
+      margin-bottom: 36px;
+    }
+
+    /* ========= FOOTER ========= */
+    footer {
+      background: var(--navy-900);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .footer-brand h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 400px;
+    }
+
+    footer h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li { margin-bottom: 10px; }
+
+    .footer-links a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent-light); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--text-tertiary);
+      font-size: 14px;
+    }
+
+    .footer-contact-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover { color: var(--accent-light); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+
+    /* ========= SUPERPOSITION ========= */
+    .superposition-box {
+      background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(6,182,212,0.02));
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: 16px;
+      padding: 36px;
+      margin-top: 40px;
+    }
+
+    .superposition-box h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--accent-light);
+    }
+
+    .superposition-box p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ========= ANIMATIONS ========= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========= UTILITY ========= */
+    .text-center { text-align: center; }
+    .mb-0 { margin-bottom: 0; }
+
+    /* Phone / email contact bar in hero */
+    .contact-strip {
+      display: flex;
+      gap: 24px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-strip a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .contact-strip a:hover {
+      color: var(--accent-light);
+    }
+
+    .contact-strip svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <!-- ========= HEADER ========= -->
+  <header id="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo">
+          <div class="logo-badge">MBZ</div>
+          <div class="logo-text">
+            <span data-he="משה בן צבי" data-en="Moshe Ben Zvi">משה בן צבי</span>
+            <small data-he="מהנדסים יועצים בע&quot;מ" data-en="Consulting Engineers Ltd.">מהנדסים יועצים בע"מ</small>
+          </div>
+        </a>
+        <nav>
+          <a href="#hero" data-he="דף הבית" data-en="Home">דף הבית</a>
+          <a href="#about" data-he="אודות" data-en="About">אודות</a>
+          <a href="#services" data-he="שירותים" data-en="Services">שירותים</a>
+          <a href="#projects" data-he="פרויקטים" data-en="Projects">פרויקטים</a>
+          <a href="mailto:office@benzvi-eng.co.il" class="btn-primary" style="padding:10px 24px;font-size:14px;" data-he="צרו קשר" data-en="Contact Us">צרו קשר</a>
+          <button class="lang-btn" onclick="toggleLang()">EN</button>
+        </nav>
+        <button class="hamburger" onclick="toggleMobile()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" onclick="toggleMobile()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <a href="#hero" onclick="toggleMobile()" data-he="דף הבית" data-en="Home">דף הבית</a>
+    <a href="#about" onclick="toggleMobile()" data-he="אודות" data-en="About">אודות</a>
+    <a href="#services" onclick="toggleMobile()" data-he="שירותים" data-en="Services">שירותים</a>
+    <a href="#projects" onclick="toggleMobile()" data-he="פרויקטים" data-en="Projects">פרויקטים</a>
+    <a href="mailto:office@benzvi-eng.co.il" onclick="toggleMobile()" data-he="צרו קשר" data-en="Contact Us">צרו קשר</a>
+    <button class="lang-btn" onclick="toggleLang()" style="font-size:18px;padding:10px 24px;">EN</button>
+  </div>
+
+  <!-- ========= HERO ========= -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge" data-he="מאז 1971" data-en="Since 1971">מאז 1971</span>
+        <h1 data-he="מצוינות הנדסית מאז 1971" data-en="Engineering Excellence Since 1971">מצוינות הנדסית מאז 1971</h1>
+        <p data-he="מומחים מובילים בתכנון מערכות מיזוג אוויר, תברואה והגנה מפני אש לבתי חולים, אוניברסיטאות, מרכזים מסחריים ומבני הייטק" data-en="Leading experts in HVAC, Plumbing &amp; Fire Protection systems for hospitals, universities, commercial centers, and hi-tech buildings">מומחים מובילים בתכנון מערכות מיזוג אוויר, תברואה והגנה מפני אש לבתי חולים, אוניברסיטאות, מרכזים מסחריים ומבני הייטק</p>
+        <div class="hero-btns">
+          <a href="mailto:office@benzvi-eng.co.il" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-he="צרו קשר" data-en="Get in Touch">צרו קשר</span>
+          </a>
+          <a href="#about" class="btn-secondary">
+            <span data-he="למידע נוסף" data-en="Learn More">למידע נוסף</span>
+          </a>
+        </div>
+        <div class="contact-strip">
+          <a href="tel:+97235227405">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            03-522-7405
+          </a>
+          <a href="mailto:office@benzvi-eng.co.il">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            office@benzvi-eng.co.il
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= SERVICES OVERVIEW ========= -->
+  <section id="services-overview" class="grid-bg">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <span class="section-tag" data-he="השירותים שלנו" data-en="Our Services">השירותים שלנו</span>
+        <h2 class="section-title" data-he="פתרונות הנדסיים מקיפים" data-en="Comprehensive Engineering Solutions">פתרונות הנדסיים מקיפים</h2>
+        <p class="section-subtitle" data-he="ייעוץ ותכנון מומחה בכל תחומי ההנדסה המכנית והתברואה" data-en="Expert consulting and design across all mechanical and plumbing disciplines">ייעוץ ותכנון מומחה בכל תחומי ההנדסה המכנית והתברואה</p>
+        <div class="underline-accent"></div>
+      </div>
+      <div class="services-grid">
+        <!-- HVAC -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
+          </div>
+          <h3 data-he="מיזוג אוויר" data-en="HVAC Systems">מיזוג אוויר</h3>
+          <p data-he="תכנון וייעוץ מלא במיזוג אוויר למבנים בכל קנה מידה" data-en="Complete air conditioning design and consulting for buildings of all scales">תכנון וייעוץ מלא במיזוג אוויר למבנים בכל קנה מידה</p>
+        </div>
+        <!-- Plumbing -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0a4 4 0 100 8 4 4 0 000-8zm-4 4H2m20 0h-6"/></svg>
+          </div>
+          <h3 data-he="תברואה ואינסטלציה" data-en="Plumbing & Sanitation">תברואה ואינסטלציה</h3>
+          <p data-he="מערכות מים, ניקוז ותברואה למתקנים מורכבים" data-en="Water supply, drainage, and sanitation systems for complex facilities">מערכות מים, ניקוז ותברואה למתקנים מורכבים</p>
+        </div>
+        <!-- Fire Sprinklers -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 data-he="ספרינקלרים" data-en="Fire Sprinklers">ספרינקלרים</h3>
+          <p data-he="תכנון מערכות כיבוי אש וספרינקלרים בהתאם לתקנים" data-en="Fire suppression and sprinkler system design to meet safety standards">תכנון מערכות כיבוי אש וספרינקלרים בהתאם לתקנים</p>
+        </div>
+        <!-- Heating -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+          </div>
+          <h3 data-he="הסקה" data-en="Heating Systems">הסקה</h3>
+          <p data-he="פתרונות הסקה מרכזית ומקומית ליעילות ונוחות" data-en="Central and local heating solutions for comfort and efficiency">פתרונות הסקה מרכזית ומקומית ליעילות ונוחות</p>
+        </div>
+        <!-- Ventilation -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg>
+          </div>
+          <h3 data-he="אוורור" data-en="Ventilation">אוורור</h3>
+          <p data-he="מערכות אספקת אוויר צח ושאיבה לסביבה בריאה" data-en="Fresh air supply and exhaust systems for healthy indoor environments">מערכות אספקת אוויר צח ושאיבה לסביבה בריאה</p>
+        </div>
+        <!-- Cooling -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2v20M17 7l-5 5-5-5M7 17l5-5 5 5M20 16l-4-4 4-4M4 8l4 4-4 4"/></svg>
+          </div>
+          <h3 data-he="קירור" data-en="Cooling Systems">קירור</h3>
+          <p data-he="צ'ילרים, מגדלי קירור וקירור תעשייתי ומסחרי" data-en="Chillers, cooling towers, and refrigeration for industrial and commercial use">צ'ילרים, מגדלי קירור וקירור תעשייתי ומסחרי</p>
+        </div>
+        <!-- Sanitation -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3 data-he="הנדסת תברואה" data-en="Sanitation Engineering">הנדסת תברואה</h3>
+          <p data-he="מערכות ניהול פסולת ומים מקיפות" data-en="Comprehensive waste and water management systems">מערכות ניהול פסולת ומים מקיפות</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ABOUT PREVIEW ========= -->
+  <section id="about-preview">
+    <div class="container">
+      <div class="about-grid fade-in">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label" data-he="שנות ניסיון" data-en="Years Experience">שנות ניסיון</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">500+</div>
+            <div class="stat-label" data-he="פרויקטים" data-en="Projects">פרויקטים</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100+</div>
+            <div class="stat-label" data-he="לקוחות" data-en="Clients">לקוחות</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7</div>
+            <div class="stat-label" data-he="התמחויות" data-en="Specialties">התמחויות</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <span class="section-tag" data-he="אודותינו" data-en="About Us">אודותינו</span>
+          <h2 data-he="למעלה מ-50 שנות מנהיגות הנדסית" data-en="Over 50 Years of Engineering Leadership">למעלה מ-50 שנות מנהיגות הנדסית</h2>
+          <p data-he="מאז 1971, משה בן צבי מהנדסים יועצים נמצאים בחזית ההנדסה המכנית והתברואה בישראל. אנו מתמחים בתכנון מערכות מורכבות של מיזוג אוויר, ספרינקלרים, הסקה, אוורור, קירור ותברואה עבור הפרויקטים התובעניים ביותר." data-en="Since 1971, Moshe Ben Zvi Consulting Engineers has been at the forefront of mechanical and plumbing engineering in Israel. We specialize in designing complex HVAC, sprinkler, heating, ventilation, cooling, and sanitation systems for the most demanding projects.">מאז 1971, משה בן צבי מהנדסים יועצים נמצאים בחזית ההנדסה המכנית והתברואה בישראל. אנו מתמחים בתכנון מערכות מורכבות של מיזוג אוויר, ספרינקלרים, הסקה, אוורור, קירור ותברואה עבור הפרויקטים התובעניים ביותר.</p>
+          <a href="#about" class="btn-secondary" data-he="קראו עוד עלינו" data-en="Read More About Us">קראו עוד עלינו</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ABOUT (FULL) ========= -->
+  <section id="about" class="grid-bg">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 class="section-title" data-he="אודות המשרד" data-en="About Our Firm">אודות המשרד</h2>
+        <p class="section-subtitle" data-he="עשרות שנים של מצוינות בייעוץ הנדסה מכנית" data-en="Decades of excellence in mechanical engineering consulting">עשרות שנים של מצוינות בייעוץ הנדסה מכנית</p>
+        <div class="underline-accent"></div>
+      </div>
+
+      <!-- History -->
+      <div class="fade-in" style="max-width:700px;margin:0 auto 60px;">
+        <h3 style="font-size:22px;font-weight:700;margin-bottom:8px;" data-he="ההיסטוריה שלנו" data-en="Our History">ההיסטוריה שלנו</h3>
+        <p style="color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:16px;" data-he='משרד משה בן צבי מהנדסים יועצים בע"מ הוקם בשנת 1971 וצמח להיות אחד ממשרדי הייעוץ ההנדסי המכני המוערכים בישראל. במשך למעלה מחמישה עשורים, אנו מספקים שירותי ייעוץ ותכנון מומחים במיזוג אוויר, ספרינקלרים, הסקה, אוורור, קירור ותברואה.' data-en="Founded in 1971, Moshe Ben Zvi Consulting Engineers Ltd. has grown to become one of Israel's most respected mechanical engineering consultancy firms. For over five decades, we have been providing expert consulting and design services in air conditioning, sprinklers, heating, ventilation, cooling, and sanitation.">משרד משה בן צבי מהנדסים יועצים בע"מ הוקם בשנת 1971 וצמח להיות אחד ממשרדי הייעוץ ההנדסי המכני המוערכים בישראל. במשך למעלה מחמישה עשורים, אנו מספקים שירותי ייעוץ ותכנון מומחים במיזוג אוויר, ספרינקלרים, הסקה, אוורור, קירור ותברואה.</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1971</div>
+            <div class="timeline-text" data-he="הקמת המשרד — תחילת שירותי ייעוץ הנדסה מכנית" data-en="Company founded — beginning of mechanical engineering consulting services">הקמת המשרד — תחילת שירותי ייעוץ הנדסה מכנית</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-he="שנות ה-80" data-en="1980s">שנות ה-80</div>
+            <div class="timeline-text" data-he="התרחבות לתכנון בתי חולים וקמפוסים אוניברסיטאיים" data-en="Expansion into hospital and university campus design">התרחבות לתכנון בתי חולים וקמפוסים אוניברסיטאיים</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-he="שנות ה-90" data-en="1990s">שנות ה-90</div>
+            <div class="timeline-text" data-he="חלוצים בתכנון מערכות מיזוג למעבדות ביולוגיות וכימיות" data-en="Pioneering biological and chemical laboratory HVAC systems">חלוצים בתכנון מערכות מיזוג למעבדות ביולוגיות וכימיות</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-he="שנות ה-2000" data-en="2000s">שנות ה-2000</div>
+            <div class="timeline-text" data-he="הובלת הנדסת מבני הייטק ומבנים משולבים" data-en="Leading hi-tech and mixed-use building engineering">הובלת הנדסת מבני הייטק ומבנים משולבים</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year" data-he="היום" data-en="Today">היום</div>
+            <div class="timeline-text" data-he="ממשיכים להוביל בהנדסת בניין בת-קיימא" data-en="Continuing to set standards in sustainable building engineering">ממשיכים להוביל בהנדסת בניין בת-קיימא</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expertise -->
+      <div class="fade-in">
+        <h3 style="font-size:22px;font-weight:700;text-align:center;margin-bottom:8px;" data-he="התמחויות" data-en="Our Expertise">התמחויות</h3>
+        <div class="expertise-grid">
+          <div class="expertise-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18M6 12H4a2 2 0 00-2 2v6a2 2 0 002 2h2M18 9h2a2 2 0 012 2v9a2 2 0 01-2 2h-2"/></svg>
+            </div>
+            <h4 data-he="בתי חולים ובריאות" data-en="Hospitals & Healthcare">בתי חולים ובריאות</h4>
+            <p data-he="מערכות מיזוג אוויר ותברואה מתקדמות העומדות בתקנים המחמירים ביותר" data-en="Specialized HVAC and plumbing systems meeting the strictest healthcare standards">מערכות מיזוג אוויר ותברואה מתקדמות העומדות בתקנים המחמירים ביותר</p>
+          </div>
+          <div class="expertise-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg>
+            </div>
+            <h4 data-he="אוניברסיטאות ומעבדות" data-en="Universities & Labs">אוניברסיטאות ומעבדות</h4>
+            <p data-he="מערכות אוורור ובטיחות למעבדות ביולוגיות וכימיות" data-en="Biological and chemical laboratory ventilation and safety systems">מערכות אוורור ובטיחות למעבדות ביולוגיות וכימיות</p>
+          </div>
+          <div class="expertise-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+            <h4 data-he="מרכזים מסחריים" data-en="Commercial Centers">מרכזים מסחריים</h4>
+            <p data-he="בקרת אקלים והגנה מפני אש בקנה מידה גדול למתחמים מסחריים" data-en="Large-scale climate control and fire protection for commercial complexes">בקרת אקלים והגנה מפני אש בקנה מידה גדול למתחמים מסחריים</p>
+          </div>
+          <div class="expertise-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>
+            </div>
+            <h4 data-he="הייטק ומבנים משולבים" data-en="Hi-Tech & Mixed-Use">הייטק ומבנים משולבים</h4>
+            <p data-he="מערכות מכניות מודרניות לקמפוסים טכנולוגיים ומבנים מעורבים" data-en="Modern mechanical systems for technology campuses and mixed-use developments">מערכות מכניות מודרניות לקמפוסים טכנולוגיים ומבנים מעורבים</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Superposition -->
+      <div class="superposition-box fade-in" style="max-width:700px;margin:60px auto 0;">
+        <h3 data-he="תיאום סופרפוזיציה" data-en="Superposition Coordination">תיאום סופרפוזיציה</h3>
+        <p data-he="אנו מתמחים בתיאום תוכניות סופרפוזיציה בין שני המקצועות הראשיים שלנו — תברואה ומיזוג אוויר — להבטחת אינטגרציה חלקה והתקנות ללא התנגשויות." data-en="We specialize in superposition plan coordination between our two main disciplines — plumbing and HVAC — ensuring seamless integration and conflict-free installations.">אנו מתמחים בתיאום תוכניות סופרפוזיציה בין שני המקצועות הראשיים שלנו — תברואה ומיזוג אוויר — להבטחת אינטגרציה חלקה והתקנות ללא התנגשויות.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= SERVICES DETAIL ========= -->
+  <section id="services">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 class="section-title" data-he="השירותים שלנו" data-en="Our Services">השירותים שלנו</h2>
+        <p class="section-subtitle" data-he="פתרונות הנדסה מכנית ותברואה מקיפים" data-en="Comprehensive mechanical and plumbing engineering solutions">פתרונות הנדסה מכנית ותברואה מקיפים</p>
+        <div class="underline-accent"></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg></div>
+          <h3 data-he="מיזוג אוויר" data-en="HVAC Systems">מיזוג אוויר</h3>
+          <p data-he="אנו מספקים שירותי ייעוץ ותכנון מלאים במיזוג אוויר, מהשלב הקונספטואלי ועד פיקוח על הביצוע. המומחיות שלנו כוללת מערכות מרכזיות ומפוצלות, מערכות VRF/VRV, מערכות מים מצוננים ומערכות ייחודיות לחדרים נקיים." data-en="We provide full-spectrum HVAC consulting and design services, from initial concept through construction supervision. Our expertise covers central and split systems, VRF/VRV systems, chilled water systems, and specialized cleanroom HVAC for sensitive environments.">אנו מספקים שירותי ייעוץ ותכנון מלאים במיזוג אוויר, מהשלב הקונספטואלי ועד פיקוח על הביצוע. המומחיות שלנו כוללת מערכות מרכזיות ומפוצלות, מערכות VRF/VRV, מערכות מים מצוננים ומערכות ייחודיות לחדרים נקיים.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 0a4 4 0 100 8 4 4 0 000-8zm-4 4H2m20 0h-6"/></svg></div>
+          <h3 data-he="תברואה ואינסטלציה" data-en="Plumbing & Sanitation">תברואה ואינסטלציה</h3>
+          <p data-he="שירותי ההנדסה שלנו בתברואה כוללים מערכות מים ביתיות, ייצור מים חמים, ניקוז וביוב, ניהול מי גשמים ומערכות גזים רפואיים ייחודיות למתקני בריאות." data-en="Our plumbing engineering services encompass domestic water systems, hot water generation, drainage and sewage systems, rainwater management, and specialized medical gas systems for healthcare facilities.">שירותי ההנדסה שלנו בתברואה כוללים מערכות מים ביתיות, ייצור מים חמים, ניקוז וביוב, ניהול מי גשמים ומערכות גזים רפואיים ייחודיות למתקני בריאות.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2v6m0 0a4 4 0 100 8 4 4 0 000-8zm-4 4H2m20 0h-6"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 data-he="ספרינקלרים" data-en="Fire Sprinklers">ספרינקלרים</h3>
+          <p data-he="אנו מתכננים מערכות ספרינקלרים מקיפות בהתאם לתקן ישראלי 1596 ותקני NFPA. שירותינו כוללים מערכות רטובות, יבשות ופרה-אקשן, תכנון משאבות כיבוי ואינטגרציה עם תוכניות בטיחות אש." data-en="We design comprehensive fire sprinkler systems compliant with Israeli Standard 1596 and NFPA standards. Our services include wet, dry, and pre-action systems, fire pump design, and integration with building fire safety plans.">אנו מתכננים מערכות ספרינקלרים מקיפות בהתאם לתקן ישראלי 1596 ותקני NFPA. שירותינו כוללים מערכות רטובות, יבשות ופרה-אקשן, תכנון משאבות כיבוי ואינטגרציה עם תוכניות בטיחות אש.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></div>
+          <h3 data-he="הסקה" data-en="Heating Systems">הסקה</h3>
+          <p data-he="תכנוני מערכות ההסקה שלנו כוללים מערכות דוודים מרכזיים, חימום רצפתי, רשתות רדיאטורים ופתרונות משאבות חום. אנו מייעלים לחיסכון באנרגיה תוך הבטחת נוחות הדיירים." data-en="Our heating system designs include central boiler systems, radiant floor heating, radiator networks, and heat pump solutions. We optimize for energy efficiency while ensuring occupant comfort in Israel's diverse climate zones.">תכנוני מערכות ההסקה שלנו כוללים מערכות דוודים מרכזיים, חימום רצפתי, רשתות רדיאטורים ופתרונות משאבות חום. אנו מייעלים לחיסכון באנרגיה תוך הבטחת נוחות הדיירים.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></div>
+          <h3 data-he="אוורור" data-en="Ventilation">אוורור</h3>
+          <p data-he="אנו מתמחים בתכנון אוורור מכני הכולל מערכות אוויר חיצוני ייעודיות, שאיבת מנדפי מעבדה, אוורור מטבחים, אוורור חניונים ומערכות שליטה בעשן לבטיחות חיים." data-en="We specialize in mechanical ventilation design including dedicated outdoor air systems, laboratory fume hood exhaust, kitchen ventilation, parking garage ventilation, and smoke control systems for life safety.">אנו מתמחים בתכנון אוורור מכני הכולל מערכות אוויר חיצוני ייעודיות, שאיבת מנדפי מעבדה, אוורור מטבחים, אוורור חניונים ומערכות שליטה בעשן לבטיחות חיים.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2v20M17 7l-5 5-5-5M7 17l5-5 5 5"/></svg></div>
+          <h3 data-he="קירור" data-en="Cooling Systems">קירור</h3>
+          <p data-he="המומחיות שלנו בקירור כוללת תכנון מתקני צ'ילרים, מגדלי קירור, קירור תהליכי ליישומים תעשייתיים, קירור חדרי שרתים וקירור ייחודי לציוד רפואי ומעבדות." data-en="Our cooling system expertise covers chiller plant design, cooling tower systems, process cooling for industrial applications, data center cooling, and specialized cooling for medical equipment and laboratories.">המומחיות שלנו בקירור כוללת תכנון מתקני צ'ילרים, מגדלי קירור, קירור תהליכי ליישומים תעשייתיים, קירור חדרי שרתים וקירור ייחודי לציוד רפואי ומעבדות.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2v20M17 7l-5 5-5-5M7 17l5-5 5 5"/></svg></div>
+      </div>
+
+      <div class="service-detail fade-in">
+        <div>
+          <div class="service-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <h3 data-he="הנדסת תברואה" data-en="Sanitation Engineering">הנדסת תברואה</h3>
+          <p data-he="אנו מתכננים מערכות תברואה מלאות הכוללות טיפול בשפכים, מיחזור מים אפורים, ניהול מי נגר ומערכות טיפול בפסולת ייחודיות למתקני בריאות ומעבדות." data-en="We design complete sanitation systems including sewage treatment, greywater recycling, stormwater management, and specialized waste handling systems for healthcare and laboratory facilities.">אנו מתכננים מערכות תברואה מלאות הכוללות טיפול בשפכים, מיחזור מים אפורים, ניהול מי נגר ומערכות טיפול בפסולת ייחודיות למתקני בריאות ומעבדות.</p>
+        </div>
+        <div class="service-detail-visual"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= PROJECTS ========= -->
+  <section id="projects" class="grid-bg">
+    <div class="container">
+      <div class="section-heading fade-in">
+        <h2 class="section-title" data-he="הפרויקטים שלנו" data-en="Our Projects">הפרויקטים שלנו</h2>
+        <p class="section-subtitle" data-he="מבחר פרויקטים המציגים את המומחיות שלנו במגזרים שונים" data-en="A selection of projects showcasing our expertise across sectors">מבחר פרויקטים המציגים את המומחיות שלנו במגזרים שונים</p>
+        <div class="underline-accent"></div>
+      </div>
+
+      <div class="project-filters fade-in">
+        <button class="filter-btn active" data-filter="all" data-he="כל הפרויקטים" data-en="All Projects">כל הפרויקטים</button>
+        <button class="filter-btn" data-filter="hospitals" data-he="בתי חולים ובריאות" data-en="Hospitals & Healthcare">בתי חולים ובריאות</button>
+        <button class="filter-btn" data-filter="universities" data-he="אוניברסיטאות ומעבדות" data-en="Universities & Labs">אוניברסיטאות ומעבדות</button>
+        <button class="filter-btn" data-filter="commercial" data-he="מרכזים מסחריים" data-en="Commercial Centers">מרכזים מסחריים</button>
+        <button class="filter-btn" data-filter="hitech" data-he="הייטק ומשרדים" data-en="Hi-Tech & Offices">הייטק ומשרדים</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card fade-in" data-cat="hospitals">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hospitals" data-he="בתי חולים ובריאות" data-en="Hospitals">בתי חולים ובריאות</span>
+            <h3 data-he="המרכז הרפואי הדסה" data-en="Hadassah Medical Center">המרכז הרפואי הדסה</h3>
+            <p data-he="מערכות מיזוג אוויר ותברואה מלאות לאגף בית חולים חדש" data-en="Complete HVAC and plumbing systems for new hospital wing">מערכות מיזוג אוויר ותברואה מלאות לאגף בית חולים חדש</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="hospitals">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hospitals" data-he="בתי חולים ובריאות" data-en="Hospitals">בתי חולים ובריאות</span>
+            <h3 data-he="המרכז הרפואי תל אביב (איכילוב)" data-en="Tel Aviv Sourasky Medical Center">המרכז הרפואי תל אביב (איכילוב)</h3>
+            <p data-he="שיפוץ ושדרוג מערכות מכניות" data-en="Renovation and upgrade of mechanical systems">שיפוץ ושדרוג מערכות מכניות</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="hospitals">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 22V4a2 2 0 012-2h8a2 2 0 012 2v18"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hospitals" data-he="בתי חולים ובריאות" data-en="Hospitals">בתי חולים ובריאות</span>
+            <h3 data-he="המרכז הרפואי שיבא" data-en="Sheba Medical Center">המרכז הרפואי שיבא</h3>
+            <p data-he="אוורור מעבדות מתמחה ומערכות גזים רפואיים" data-en="Specialized laboratory ventilation and medical gas systems">אוורור מעבדות מתמחה ומערכות גזים רפואיים</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="universities">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+          <div class="project-info">
+            <span class="project-category universities" data-he="אוניברסיטאות ומעבדות" data-en="Universities">אוניברסיטאות ומעבדות</span>
+            <h3 data-he="קמפוס האוניברסיטה העברית" data-en="Hebrew University Campus">קמפוס האוניברסיטה העברית</h3>
+            <p data-he="מיזוג מעבדות ביולוגיה וכימיה עם מערכות מנדפים" data-en="Biology and chemistry lab HVAC with fume hood systems">מיזוג מעבדות ביולוגיה וכימיה עם מערכות מנדפים</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="universities">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+          <div class="project-info">
+            <span class="project-category universities" data-he="אוניברסיטאות ומעבדות" data-en="Universities">אוניברסיטאות ומעבדות</span>
+            <h3 data-he="מתקני מחקר הטכניון" data-en="Technion Research Facilities">מתקני מחקר הטכניון</h3>
+            <p data-he="אוורור חדרים נקיים ובקרת טמפרטורה מדויקת" data-en="Clean room ventilation and precision temperature control">אוורור חדרים נקיים ובקרת טמפרטורה מדויקת</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="universities">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+          <div class="project-info">
+            <span class="project-category universities" data-he="אוניברסיטאות ומעבדות" data-en="Universities">אוניברסיטאות ומעבדות</span>
+            <h3 data-he="אוניברסיטת בן גוריון" data-en="Ben Gurion University">אוניברסיטת בן גוריון</h3>
+            <p data-he="תכנון מיזוג קמפוס ומיטוב אנרגיה" data-en="Campus-wide HVAC design and energy optimization">תכנון מיזוג קמפוס ומיטוב אנרגיה</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="commercial">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div>
+          <div class="project-info">
+            <span class="project-category commercial" data-he="מרכזים מסחריים" data-en="Commercial">מרכזים מסחריים</span>
+            <h3 data-he="מרכז עזריאלי" data-en="Azrieli Shopping Center">מרכז עזריאלי</h3>
+            <p data-he="בקרת אקלים וספרינקלרים בקנה מידה גדול" data-en="Large-scale climate control and fire sprinkler systems">בקרת אקלים וספרינקלרים בקנה מידה גדול</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="commercial">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div>
+          <div class="project-info">
+            <span class="project-category commercial" data-he="מרכזים מסחריים" data-en="Commercial">מרכזים מסחריים</span>
+            <h3 data-he="גרנד קניון" data-en="Grand Canyon Mall">גרנד קניון</h3>
+            <p data-he="מערכות מכניות מלאות למתחם מסחרי רב-קומתי" data-en="Complete mechanical systems for multi-level commercial complex">מערכות מכניות מלאות למתחם מסחרי רב-קומתי</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="commercial">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/></svg></div>
+          <div class="project-info">
+            <span class="project-category commercial" data-he="מרכזים מסחריים" data-en="Commercial">מרכזים מסחריים</span>
+            <h3 data-he="בורסת היהלומים רמת גן" data-en="Ramat Gan Diamond Exchange">בורסת היהלומים רמת גן</h3>
+            <p data-he="מיזוג אוויר ותברואה למגדלי משרדים" data-en="Office tower HVAC and plumbing systems">מיזוג אוויר ותברואה למגדלי משרדים</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="hitech">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hitech" data-he="הייטק ומשרדים" data-en="Hi-Tech">הייטק ומשרדים</span>
+            <h3 data-he="פארק ההייטק הרצליה" data-en="Herzliya Hi-Tech Park">פארק ההייטק הרצליה</h3>
+            <p data-he="מיזוג מודרני לקמפוס טכנולוגי עם קירור חדרי שרתים" data-en="Modern HVAC for technology campus with data center cooling">מיזוג מודרני לקמפוס טכנולוגי עם קירור חדרי שרתים</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="hitech">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hitech" data-he="הייטק ומשרדים" data-en="Hi-Tech">הייטק ומשרדים</span>
+            <h3 data-he="מרכז הטק רעננה" data-en="Raanana Tech Hub">מרכז הטק רעננה</h3>
+            <p data-he="פיתוח משולב עם חללי משרדים ומסחר" data-en="Mixed-use development with office and commercial spaces">פיתוח משולב עם חללי משרדים ומסחר</p>
+          </div>
+        </div>
+
+        <div class="project-card fade-in" data-cat="hitech">
+          <div class="project-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg></div>
+          <div class="project-info">
+            <span class="project-category hitech" data-he="הייטק ומשרדים" data-en="Hi-Tech">הייטק ומשרדים</span>
+            <h3 data-he="מרכז העסקים פתח תקווה" data-en="Petah Tikva Business Center">מרכז העסקים פתח תקווה</h3>
+            <p data-he="מערכות מכניות משולבות למתחם משרדי הייטק" data-en="Integrated mechanical systems for hi-tech office complex">מערכות מכניות משולבות למתחם משרדי הייטק</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= CTA ========= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content fade-in">
+        <h2 data-he="מוכנים להתחיל את הפרויקט?" data-en="Ready to Start Your Project?">מוכנים להתחיל את הפרויקט?</h2>
+        <p data-he="צרו קשר לייעוץ הנדסי מקצועי" data-en="Contact us for expert engineering consultation">צרו קשר לייעוץ הנדסי מקצועי</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="mailto:office@benzvi-eng.co.il" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span data-he="שלחו אימייל" data-en="Send Email">שלחו אימייל</span>
+          </a>
+          <a href="tel:+97235227405" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>03-522-7405</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= FOOTER ========= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 data-he="משה בן צבי מהנדסים יועצים בע&quot;מ" data-en="Moshe Ben Zvi Consulting Engineers Ltd.">משה בן צבי מהנדסים יועצים בע"מ</h3>
+          <p data-he="ייעוץ ותכנון מקצועי במיזוג אוויר, תברואה והגנה מפני אש מאז 1971." data-en="Professional HVAC, plumbing, and fire protection engineering consulting since 1971.">ייעוץ ותכנון מקצועי במיזוג אוויר, תברואה והגנה מפני אש מאז 1971.</p>
+        </div>
+        <div>
+          <h4 data-he="קישורים מהירים" data-en="Quick Links">קישורים מהירים</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" data-he="דף הבית" data-en="Home">דף הבית</a></li>
+            <li><a href="#about" data-he="אודות" data-en="About">אודות</a></li>
+            <li><a href="#services" data-he="שירותים" data-en="Services">שירותים</a></li>
+            <li><a href="#projects" data-he="פרויקטים" data-en="Projects">פרויקטים</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-he="פרטי יצירת קשר" data-en="Contact Info">פרטי יצירת קשר</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+97235227405">03-522-7405</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:office@benzvi-eng.co.il">office@benzvi-eng.co.il</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span data-he="ראשון - חמישי: 8:00 - 17:00" data-en="Sunday - Thursday: 8:00 - 17:00">ראשון - חמישי: 8:00 - 17:00</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2024 <span data-he="משה בן צבי מהנדסים יועצים בע&quot;מ" data-en="Moshe Ben Zvi Consulting Engineers Ltd.">משה בן צבי מהנדסים יועצים בע"מ</span>. <span data-he="כל הזכויות שמורות." data-en="All rights reserved.">כל הזכויות שמורות.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ========= LANGUAGE TOGGLE =========
+    let currentLang = 'he';
+
+    function toggleLang() {
+      currentLang = currentLang === 'he' ? 'en' : 'he';
+      const html = document.documentElement;
+      html.lang = currentLang;
+      html.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-he][data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+      });
+
+      // Update lang buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.textContent = currentLang === 'he' ? 'EN' : 'עב';
+      });
+    }
+
+    // ========= HEADER SCROLL =========
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // ========= MOBILE NAV =========
+    function toggleMobile() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+
+    // ========= PROJECT FILTERS =========
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.project-card').forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // ========= SCROLL ANIMATIONS =========
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
