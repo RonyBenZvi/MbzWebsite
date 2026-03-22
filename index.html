@@ -1,82 +1,578 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moshe Ben Zvi Consulting Engineers Ltd</title>
     <meta
       name="description"
-      content="Moshe Ben Zvi Consulting Engineers Ltd - HVAC and Plumbing engineering consultants."
+      content="Modern bilingual website for Moshe Ben Zvi Consulting Engineers Ltd in Israel."
     />
     <style>
       :root {
-        --bg: #edf4fb;
-        --surface: #ffffff;
-        --ink: #17324d;
-        --muted: #55718f;
-        --brand: #0f4d8a;
-        --brand-2: #1d87c8;
+        --bg: #07111f;
+        --surface: rgba(10, 24, 43, 0.72);
+        --surface-strong: #0f223c;
+        --surface-soft: rgba(255, 255, 255, 0.08);
+        --text: #f6fbff;
+        --muted: #b9c8dc;
+        --brand: #59d0ff;
+        --brand-strong: #2f7cff;
+        --accent: #7bf0c5;
+        --border: rgba(255, 255, 255, 0.12);
+        --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
       }
 
       * {
         box-sizing: border-box;
       }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background: radial-gradient(circle at 20% 20%, #edf4fb 0%, #fdf4e8 100%);
-        color: var(--ink);
+      html {
+        scroll-behavior: smooth;
       }
 
-      .card {
-        width: min(760px, 92vw);
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(47, 124, 255, 0.25), transparent 28%),
+          radial-gradient(circle at top right, rgba(123, 240, 197, 0.16), transparent 24%),
+          linear-gradient(160deg, #040b14 0%, #07111f 55%, #0d1d33 100%);
+        color: var(--text);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: radial-gradient(circle at center, black 32%, transparent 92%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1180px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(18px);
+        background: rgba(7, 17, 31, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(145deg, rgba(89, 208, 255, 0.22), rgba(47, 124, 255, 0.25));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        font-weight: 800;
+        color: var(--brand);
+      }
+
+      .brand-copy strong,
+      .brand-copy span {
+        display: block;
+      }
+
+      .brand-copy strong {
+        font-size: 0.98rem;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .lang-toggle {
+        display: inline-flex;
+        padding: 0.3rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border);
+      }
+
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 0.6rem 0.95rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .lang-toggle button.active {
+        background: linear-gradient(145deg, var(--brand), var(--brand-strong));
+        color: #03111f;
+      }
+
+      .hero {
+        padding: 5rem 0 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+        align-items: stretch;
+      }
+
+      .panel {
         background: var(--surface);
-        border: 1px solid #d6e2ef;
-        border-radius: 18px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        border-radius: 28px;
+        overflow: hidden;
+      }
+
+      .hero-copy,
+      .hero-card {
         padding: 2rem;
-        box-shadow: 0 18px 42px rgba(16, 44, 76, 0.12);
-        text-align: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent);
+        background: rgba(123, 240, 197, 0.09);
+        border: 1px solid rgba(123, 240, 197, 0.14);
+        border-radius: 999px;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.86rem;
+        letter-spacing: 0.02em;
       }
 
       h1 {
-        margin: 0 0 0.75rem;
-        font-size: clamp(1.8rem, 4vw, 2.9rem);
-        line-height: 1.1;
+        font-size: clamp(2.6rem, 6vw, 5.25rem);
+        line-height: 0.96;
+        margin: 1rem 0;
+        max-width: 11ch;
       }
 
-      p {
-        margin: 0;
+      .lead {
         color: var(--muted);
-        font-size: 1.03rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        max-width: 64ch;
       }
 
-      .actions {
-        margin-top: 1.5rem;
+      .hero-actions,
+      .contact-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+        margin-top: 1.8rem;
+      }
+
+      .btn,
+      .btn-secondary {
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 0.92rem 1.35rem;
+        font-weight: 800;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
       }
 
       .btn {
-        display: inline-block;
-        border: 0;
-        border-radius: 999px;
-        padding: 0.75rem 1.25rem;
-        background: linear-gradient(120deg, var(--brand), var(--brand-2));
-        color: #ffffff;
+        background: linear-gradient(135deg, var(--brand), var(--brand-strong));
+        color: #02101d;
+        box-shadow: 0 18px 40px rgba(47, 124, 255, 0.35);
+      }
+
+      .btn-secondary {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+      }
+
+      .btn:hover,
+      .btn-secondary:hover,
+      .feature:hover,
+      .contact-card:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-card {
+        display: grid;
+        gap: 1rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+          linear-gradient(160deg, rgba(89, 208, 255, 0.12), rgba(47, 124, 255, 0.04));
+      }
+
+      .metric {
+        padding: 1rem 1.1rem;
+        border-radius: 20px;
+        background: var(--surface-soft);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 2rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .section {
+        padding: 1.2rem 0 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-head h2,
+      .contact-wrap h2 {
+        margin: 0;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+      }
+
+      .section-head p,
+      .contact-wrap p,
+      .feature p,
+      .contact-card p,
+      footer p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      .feature,
+      .contact-card {
+        padding: 1.4rem;
+        border-radius: 24px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transition: transform 180ms ease;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        background: linear-gradient(145deg, rgba(89, 208, 255, 0.18), rgba(123, 240, 197, 0.18));
+      }
+
+      .feature h3,
+      .contact-card h3 {
+        margin: 0 0 0.6rem;
+        font-size: 1.15rem;
+      }
+
+      .contact-wrap {
+        margin: 3rem 0 2rem;
+        padding: 2rem;
+        background: linear-gradient(160deg, rgba(47, 124, 255, 0.14), rgba(123, 240, 197, 0.08));
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .contact-card a {
+        color: var(--brand);
         text-decoration: none;
         font-weight: 700;
+      }
+
+      footer {
+        padding: 1rem 0 3rem;
+      }
+
+      [data-lang] {
+        display: none;
+      }
+
+      html[data-language='en'] [data-lang='en'],
+      html[data-language='he'] [data-lang='he'] {
+        display: block;
+      }
+
+      html[data-language='he'] body {
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+
+      html[data-language='he'] {
+        direction: rtl;
+      }
+
+      html[data-language='he'] .topbar-inner,
+      html[data-language='he'] .section-head {
+        flex-direction: row-reverse;
+      }
+
+      html[data-language='he'] .brand,
+      html[data-language='he'] .controls,
+      html[data-language='he'] .hero-actions,
+      html[data-language='he'] .contact-actions {
+        flex-direction: row-reverse;
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid,
+        .grid-3,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar-inner,
+        .section-head {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding-top: 3rem;
+        }
+
+        .hero-copy,
+        .hero-card,
+        .contact-wrap {
+          padding: 1.3rem;
+        }
+
+        h1 {
+          max-width: none;
+        }
       }
     </style>
   </head>
   <body>
-    <main class="card">
-      <h1>Moshe Ben Zvi Consulting Engineers Ltd</h1>
-      <p>HVAC and Plumbing engineering consultancy.</p>
-      <div class="actions">
-        <a class="btn" href="mailto:office@benzvi-eng.co.il">Contact Us</a>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">MBZ</div>
+          <div class="brand-copy">
+            <strong data-lang="en">Moshe Ben Zvi Consulting Engineers Ltd</strong>
+            <strong data-lang="he">משה בן צבי מהנדסים יועצים בע״מ</strong>
+            <span data-lang="en">Engineering clarity for ambitious projects</span>
+            <span data-lang="he">דיוק הנדסי לפרויקטים שאפתניים</span>
+          </div>
+        </div>
+        <div class="controls">
+          <nav>
+            <a class="btn-secondary" href="#contact" data-lang="en">Contact</a>
+            <a class="btn-secondary" href="#contact" data-lang="he">צור קשר</a>
+          </nav>
+          <div class="lang-toggle" aria-label="Language switcher">
+            <button type="button" class="active" data-set-language="en">EN</button>
+            <button type="button" data-set-language="he">עברית</button>
+          </div>
+        </div>
       </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-grid">
+          <article class="panel hero-copy">
+            <div class="eyebrow" data-lang="en">Integrated HVAC, plumbing & building systems design</div>
+            <div class="eyebrow" data-lang="he">תכנון משולב למערכות מיזוג אוויר, אינסטלציה ומערכות בניין</div>
+
+            <h1 data-lang="en">Engineering spaces that perform beautifully.</h1>
+            <h1 data-lang="he">הנדסה שמעצבת חללים חכמים, מדויקים ונעימים יותר.</h1>
+
+            <p class="lead" data-lang="en">
+              A refined digital presence for a consulting engineering practice in Israel—showcasing professional trust,
+              advanced planning, and a smooth bilingual experience for Hebrew and English speaking clients.
+            </p>
+            <p class="lead" data-lang="he">
+              אתר מודרני ומרשים למשרד ייעוץ הנדסי בישראל—עם שפה עיצובית מתקדמת, תחושת אמינות גבוהה וחוויית שימוש
+              דו-לשונית מלאה בעברית ובאנגלית.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="en">Email the office</a>
+              <a class="btn" href="mailto:office@benzvi-eng.co.il" data-lang="he">שלחו מייל למשרד</a>
+              <a class="btn-secondary" href="tel:+97235227405" data-lang="en">Call 03-5227405</a>
+              <a class="btn-secondary" href="tel:+97235227405" data-lang="he">התקשרו: 03-5227405</a>
+            </div>
+          </article>
+
+          <aside class="panel hero-card">
+            <div class="metric">
+              <strong data-lang="en">Bilingual UX</strong>
+              <strong data-lang="he">חוויית שימוש דו-לשונית</strong>
+              <span data-lang="en">One-click switching between English and Hebrew, including layout direction.</span>
+              <span data-lang="he">מעבר מיידי בין עברית לאנגלית, כולל התאמת כיוון הקריאה והפריסה.</span>
+            </div>
+            <div class="metric">
+              <strong data-lang="en">Premium visual language</strong>
+              <strong data-lang="he">שפה ויזואלית יוקרתית</strong>
+              <span data-lang="en">Deep navy tones, luminous accents, glassmorphism surfaces, and modern motion.</span>
+              <span data-lang="he">גווני כחול עמוקים, הדגשות מוארות, משטחי זכוכית ואווירה טכנולוגית עכשווית.</span>
+            </div>
+            <div class="metric">
+              <strong data-lang="en">Direct contact flow</strong>
+              <strong data-lang="he">יצירת קשר מיידית</strong>
+              <span data-lang="en">Built-in mail and phone actions for quick outreach from any device.</span>
+              <span data-lang="he">כפתורי מייל וטלפון ישירים המאפשרים פנייה מהירה מכל מכשיר.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2 data-lang="en">Why this design works</h2>
+            <h2 data-lang="he">למה העיצוב הזה עובד</h2>
+          </div>
+          <p data-lang="en">A clean structure that balances engineering precision with a warm, premium brand feel.</p>
+          <p data-lang="he">מבנה נקי שמאזן בין דיוק הנדסי לבין מיתוג יוקרתי, מזמין ואמין.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="feature">
+            <div class="feature-icon">01</div>
+            <h3 data-lang="en">Confident first impression</h3>
+            <h3 data-lang="he">רושם ראשוני חזק</h3>
+            <p data-lang="en">A bold hero section, layered gradients, and elegant card compositions create an immediate sense of expertise.</p>
+            <p data-lang="he">אזור פתיחה עוצמתי, שכבות צבע עשירות וכרטיסים אלגנטיים מייצרים תחושה מיידית של מקצועיות וניסיון.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">02</div>
+            <h3 data-lang="en">Designed for Israeli audiences</h3>
+            <h3 data-lang="he">מותאם לקהל בישראל</h3>
+            <p data-lang="en">The interface supports both LTR and RTL reading modes so visitors can browse naturally in their preferred language.</p>
+            <p data-lang="he">הממשק תומך גם בכיוון קריאה עברי וגם באנגלית, כך שכל מבקר יכול לגלוש באופן טבעי ונוח.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">03</div>
+            <h3 data-lang="en">Fast path to contact</h3>
+            <h3 data-lang="he">מסלול מהיר ליצירת קשר</h3>
+            <p data-lang="en">Prominent CTAs keep email and phone one tap away, reducing friction for prospective clients and partners.</p>
+            <p data-lang="he">כפתורי פעולה בולטים מציבים את המייל והטלפון במרחק לחיצה אחת בלבד מלקוחות ושותפים פוטנציאליים.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-wrap" id="contact">
+        <h2 data-lang="en">Contact us</h2>
+        <h2 data-lang="he">צור קשר</h2>
+        <p data-lang="en">Reach the office directly by email or phone to discuss new projects, engineering coordination, and planning support.</p>
+        <p data-lang="he">ניתן לפנות ישירות למשרד במייל או בטלפון לצורך פרויקטים חדשים, תיאום יועצים ותמיכה תכנונית.</p>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3 data-lang="en">Email</h3>
+            <h3 data-lang="he">דוא״ל</h3>
+            <p data-lang="en">Office mailbox for inquiries and project coordination.</p>
+            <p data-lang="he">כתובת המייל הראשית לפניות, תיאום ותקשורת שוטפת.</p>
+            <div class="contact-actions">
+              <a href="mailto:office@benzvi-eng.co.il">office@benzvi-eng.co.il</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <h3 data-lang="en">Phone</h3>
+            <h3 data-lang="he">טלפון</h3>
+            <p data-lang="en">Main office phone number available online for the company.</p>
+            <p data-lang="he">מספר הטלפון הראשי של המשרד כפי שמופיע במקורות ציבוריים ברשת.</p>
+            <div class="contact-actions">
+              <a href="tel:+97235227405">03-5227405</a>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <h3 data-lang="en">Location</h3>
+            <h3 data-lang="he">מיקום</h3>
+            <p data-lang="en">Serving projects in Israel with a polished digital presence ready for GitHub Pages deployment.</p>
+            <p data-lang="he">משרתים פרויקטים בישראל עם נוכחות דיגיטלית מודרנית המותאמת לפריסה ב-GitHub Pages.</p>
+            <div class="contact-actions">
+              <span data-lang="en">Israel</span>
+              <span data-lang="he">ישראל</span>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <footer class="shell">
+      <p data-lang="en">Moshe Ben Zvi Consulting Engineers Ltd · Modern bilingual landing page concept.</p>
+      <p data-lang="he">משה בן צבי מהנדסים יועצים בע״מ · קונספט לאתר נחיתה מודרני ודו-לשוני.</p>
+    </footer>
+
+    <script>
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll('[data-set-language]');
+
+      function setLanguage(language) {
+        root.setAttribute('data-language', language);
+        root.setAttribute('lang', language === 'he' ? 'he' : 'en');
+        root.setAttribute('dir', language === 'he' ? 'rtl' : 'ltr');
+
+        buttons.forEach((button) => {
+          button.classList.toggle('active', button.dataset.setLanguage === language);
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => setLanguage(button.dataset.setLanguage));
+      });
+
+      setLanguage('en');
+    </script>
   </body>
 </html>
