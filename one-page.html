@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moshe Ben Zvi Consulting Engineers Ltd</title>
+    <meta
+      name="description"
+      content="Moshe Ben Zvi Consulting Engineers Ltd - HVAC and Plumbing engineering consultants."
+    />
+    <style>
+      :root {
+        --bg: #edf4fb;
+        --surface: #ffffff;
+        --ink: #17324d;
+        --muted: #55718f;
+        --brand: #0f4d8a;
+        --brand-2: #1d87c8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: radial-gradient(circle at 20% 20%, #edf4fb 0%, #fdf4e8 100%);
+        color: var(--ink);
+      }
+
+      .card {
+        width: min(760px, 92vw);
+        background: var(--surface);
+        border: 1px solid #d6e2ef;
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 18px 42px rgba(16, 44, 76, 0.12);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.8rem, 4vw, 2.9rem);
+        line-height: 1.1;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.03rem;
+      }
+
+      .actions {
+        margin-top: 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.75rem 1.25rem;
+        background: linear-gradient(120deg, var(--brand), var(--brand-2));
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Moshe Ben Zvi Consulting Engineers Ltd</h1>
+      <p>HVAC and Plumbing engineering consultancy.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:office@benzvi-eng.co.il">Contact Us</a>
+      </div>
+    </main>
+  </body>
+</html>
